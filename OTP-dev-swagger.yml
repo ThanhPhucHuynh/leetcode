@@ -1,0 +1,344 @@
+---
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "OTP"
+host: "r1r3y1mt96.execute-api.ap-southeast-1.amazonaws.com"
+basePath: "/dev"
+schemes:
+- "https"
+paths:
+  /createOtp:
+    post:
+      operationId: "createOtp"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "CreateOtpRequest"
+        required: true
+        schema:
+          $ref: "#/definitions/CreateOtpRequest"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/CreateOtpResponse"
+      security:
+      - OtpAuth: []
+      - api_key: []
+  /verifyOtp:
+    post:
+      operationId: "verifyOtp"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "VerifyOtpRequest"
+        required: true
+        schema:
+          $ref: "#/definitions/VerifyOtpRequest"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/VerifyOtpResponse"
+securityDefinitions:
+  api_key:
+    type: "apiKey"
+    name: "x-api-key"
+    in: "header"
+  OtpAuth:
+    type: "apiKey"
+    name: "X-IBM-CLIENT-SECRET"
+    in: "header"
+    x-amazon-apigateway-authtype: "custom"
+definitions:
+  VerifyOtpResponse:
+    type: "object"
+    properties:
+      verifyOTPRes:
+        $ref: "#/definitions/verifyOTPRes"
+  createOTPRequest:
+    type: "object"
+    properties:
+      header:
+        $ref: "#/definitions/Header"
+      bodyReq:
+        $ref: "#/definitions/BodyReq"
+  BodyReq:
+    type: "object"
+    properties:
+      functionCode:
+        type: "string"
+      request:
+        type: "object"
+        properties:
+          requestId:
+            type: "string"
+          requestTime:
+            type: "string"
+          channel:
+            type: "string"
+          serviceCode:
+            type: "string"
+      data:
+        type: "object"
+        properties:
+          userId:
+            type: "string"
+          serialNo:
+            type: "string"
+          transDetail:
+            type: "string"
+          language:
+            type: "string"
+          partner:
+            type: "string"
+          clientImei:
+            type: "string"
+          isReqChalCode:
+            type: "string"
+  CreateOtpResponse:
+    type: "object"
+    properties:
+      createOTPRes:
+        $ref: "#/definitions/createOTPRes"
+  commonRes:
+    type: "object"
+    properties:
+      serviceVersion:
+        type: "string"
+      messageId:
+        type: "string"
+      transactionId:
+        type: "string"
+      messageTimestamp:
+        type: "string"
+  ClientRes:
+    type: "object"
+    properties:
+      sourceAppID:
+        type: "string"
+      targetAppIDs:
+        type: "array"
+        items:
+          type: "string"
+      userDetail:
+        type: "object"
+        properties:
+          userID:
+            type: "string"
+          userPassword:
+            type: "string"
+  HeaderRes:
+    type: "object"
+    properties:
+      common:
+        $ref: "#/definitions/CommonRes"
+      client:
+        $ref: "#/definitions/ClientRes"
+  VerifyOTPRequest:
+    type: "object"
+    properties:
+      header:
+        $ref: "#/definitions/header"
+      bodyReq:
+        $ref: "#/definitions/bodyReq"
+  responseStatus:
+    type: "object"
+    properties:
+      status:
+        type: "string"
+      globalErrorCode:
+        type: "string"
+      globalErrorDescription:
+        type: "string"
+      errorInfo:
+        type: "array"
+        items:
+          type: "object"
+          properties:
+            errorCode:
+              type: "string"
+            errorDesc:
+              type: "string"
+  verifyOTPRes:
+    type: "object"
+    properties:
+      header:
+        $ref: "#/definitions/headerRes"
+      responseStatus:
+        $ref: "#/definitions/responseStatus"
+  Common:
+    type: "object"
+    properties:
+      serviceVersion:
+        type: "string"
+      messageId:
+        type: "string"
+      transactionId:
+        type: "string"
+      messageTimestamp:
+        type: "string"
+  Header:
+    type: "object"
+    properties:
+      common:
+        $ref: "#/definitions/Common"
+      client:
+        $ref: "#/definitions/Client"
+  common:
+    type: "object"
+    properties:
+      serviceVersion:
+        type: "string"
+      messageId:
+        type: "string"
+      transactionId:
+        type: "string"
+      messageTimestamp:
+        type: "string"
+  clientRes:
+    type: "object"
+    properties:
+      sourceAppID:
+        type: "string"
+      targetAppIDs:
+        type: "array"
+        items:
+          type: "string"
+      userDetail:
+        type: "object"
+        properties:
+          userID:
+            type: "string"
+          userPassword:
+            type: "string"
+  createOTPRes:
+    type: "object"
+    properties:
+      header:
+        $ref: "#/definitions/HeaderRes"
+      responseStatus:
+        $ref: "#/definitions/ResponseStatus"
+  ResponseStatus:
+    type: "object"
+    properties:
+      status:
+        type: "string"
+      globalErrorCode:
+        type: "string"
+      globalErrorDescription:
+        type: "string"
+      errorInfo:
+        type: "array"
+        items:
+          type: "object"
+          properties:
+            sourceAppID:
+              type: "string"
+            errorCode:
+              type: "string"
+            errorDesc:
+              type: "string"
+  VerifyOtpRequest:
+    type: "object"
+    properties:
+      verifyOTPReq:
+        $ref: "#/definitions/VerifyOTPRequest"
+  CommonRes:
+    type: "object"
+    properties:
+      serviceVersion:
+        type: "string"
+      messageId:
+        type: "string"
+      transactionId:
+        type: "string"
+      messageTimestamp:
+        type: "string"
+  CreateOtpRequest:
+    type: "object"
+    properties:
+      createOTPReq:
+        $ref: "#/definitions/createOTPRequest"
+  header:
+    type: "object"
+    properties:
+      common:
+        $ref: "#/definitions/common"
+      client:
+        $ref: "#/definitions/client"
+  client:
+    type: "object"
+    properties:
+      sourceAppID:
+        type: "string"
+      targetAppIDs:
+        type: "array"
+        items:
+          type: "string"
+      userDetail:
+        type: "object"
+        properties:
+          userID:
+            type: "string"
+          userPassword:
+            type: "string"
+  bodyReq:
+    type: "object"
+    properties:
+      functionCode:
+        type: "string"
+      request:
+        type: "object"
+        properties:
+          requestId:
+            type: "string"
+          requestTime:
+            type: "string"
+          channel:
+            type: "string"
+          serviceCode:
+            type: "string"
+      data:
+        type: "object"
+        properties:
+          userId:
+            type: "string"
+          transDetail:
+            type: "string"
+          otp:
+            type: "string"
+          mediaType:
+            type: "string"
+          challengeCode:
+            type: "string"
+  headerRes:
+    type: "object"
+    properties:
+      common:
+        $ref: "#/definitions/commonRes"
+      client:
+        $ref: "#/definitions/clientRes"
+  Client:
+    type: "object"
+    properties:
+      sourceAppID:
+        type: "string"
+      targetAppIDs:
+        type: "array"
+        items:
+          type: "string"
+      userDetail:
+        type: "object"
+        properties:
+          userID:
+            type: "string"
+          userPassword:
+            type: "string"
