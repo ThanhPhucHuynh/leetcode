@@ -1,0 +1,545 @@
+basePath: /hackathon
+definitions:
+  handler.RequestBalance:
+    properties:
+      data:
+        properties:
+          AcctNo:
+            example: "068704070000489"
+            type: string
+        required:
+        - AcctNo
+        type: object
+      request:
+        properties:
+          requestId:
+            example: a7ea23df-7468-439d-9b12-26eb4a760901
+            type: string
+          requestTime:
+            example: "1667200102200"
+            type: string
+        required:
+        - requestId
+        - requestTime
+        type: object
+    required:
+    - data
+    type: object
+  handler.RequestChangePass:
+    properties:
+      data:
+        properties:
+          credential:
+            example: Ak/sH3697qOdP/YJIB/Xm5JLf4HW6i0Wuqg0vVbk1uSefBpRAs8RMTW3V9LXhDzgMp4h9zHVc98Fn5UbZvHK2F48cNncW0Vax27r22wHOcKAL0SQVICKRGMuAHA7uoz2VEMJXjkRid60hHyjgXxZELOtuyyw6frrqZt3kjqKiFI=
+            type: string
+          key:
+            example: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCDY1DzbqoavP8UVPYARHpy+zPlaFiBdf3imr5m4RdbHCwMueevk+NoWV2dqL/LBnk8oWMqWkgMDnTleXe/jvj6zQEuuCoBVDiZq4k0JXbHdTmXg0/fH7d9YD0BsSkpSJH8A9RBSnjvIzKLNHXKTUyxG1QIIKbU2lhVAB/jK2UtdwIDAQAB
+            type: string
+        required:
+        - credential
+        - key
+        type: object
+      request:
+        properties:
+          requestId:
+            example: a7ea23df-7468-439d-9b12-26eb4a760901
+            type: string
+          requestTime:
+            example: "1667200102200"
+            type: string
+        required:
+        - requestId
+        - requestTime
+        type: object
+    required:
+    - data
+    type: object
+  handler.RequestLoginUser:
+    properties:
+      data:
+        properties:
+          credential:
+            example: aTRsE1phCk5ZUYGt4DqzUUbuU6bQ+8l2AcuKEYek4tRJx0Id04icxkW5EJ/VekK829Gg1rN8yQW6mY+rEUamireeuWUekR5yEQIw+1O7+thCdnPlQ9zULFXh9Xr9zygJqjUK5u+Y+5Ez3Am7PDmB61lwA1wp0/0s6QSpmATn6hI=
+            type: string
+          key:
+            example: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCDY1DzbqoavP8UVPYARHpy+zPlaFiBdf3imr5m4RdbHCwMueevk+NoWV2dqL/LBnk8oWMqWkgMDnTleXe/jvj6zQEuuCoBVDiZq4k0JXbHdTmXg0/fH7d9YD0BsSkpSJH8A9RBSnjvIzKLNHXKTUyxG1QIIKbU2lhVAB/jK2UtdwIDAQAB
+            type: string
+        required:
+        - credential
+        - key
+        type: object
+      request:
+        properties:
+          requestId:
+            example: a7ea23df-7468-439d-9b12-26eb4a760901
+            type: string
+          requestTime:
+            example: "1667200102200"
+            type: string
+        required:
+        - requestId
+        - requestTime
+        type: object
+    required:
+    - data
+    type: object
+  handler.RequestPayment:
+    properties:
+      data:
+        properties:
+          AcctNo:
+            example: "068704070000489"
+            type: string
+        required:
+        - AcctNo
+        type: object
+      request:
+        properties:
+          requestId:
+            example: a7ea23df-7468-439d-9b12-26eb4a760901
+            type: string
+          requestTime:
+            example: "1667200102200"
+            type: string
+        required:
+        - requestId
+        - requestTime
+        type: object
+    required:
+    - data
+    type: object
+  handler.RequestRegister:
+    properties:
+      data:
+        properties:
+          credential:
+            example: aTRsE1phCk5ZUYGt4DqzUUbuU6bQ+8l2AcuKEYek4tRJx0Id04icxkW5EJ/VekK829Gg1rN8yQW6mY+rEUamireeuWUekR5yEQIw+1O7+thCdnPlQ9zULFXh9Xr9zygJqjUK5u+Y+5Ez3Am7PDmB61lwA1wp0/0s6QSpmATn6hI=
+            type: string
+          email:
+            example: minhnq9@hdbank.com.vn
+            type: string
+          fullName:
+            example: Nguyen Quoc Minh
+            type: string
+          identityNumber:
+            example: "225753433"
+            type: string
+          key:
+            example: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCDY1DzbqoavP8UVPYARHpy+zPlaFiBdf3imr5m4RdbHCwMueevk+NoWV2dqL/LBnk8oWMqWkgMDnTleXe/jvj6zQEuuCoBVDiZq4k0JXbHdTmXg0/fH7d9YD0BsSkpSJH8A9RBSnjvIzKLNHXKTUyxG1QIIKbU2lhVAB/jK2UtdwIDAQAB
+            type: string
+          phone:
+            example: "0383479651"
+            type: string
+        required:
+        - credential
+        - email
+        - fullName
+        - identityNumber
+        - key
+        - phone
+        type: object
+      request:
+        properties:
+          requestId:
+            example: a7ea23df-7468-439d-9b12-26eb4a760901
+            type: string
+          requestTime:
+            example: "1667200102200"
+            type: string
+        required:
+        - requestId
+        - requestTime
+        type: object
+    required:
+    - data
+    type: object
+  handler.RequestTransHis:
+    properties:
+      data:
+        properties:
+          AcctNo:
+            example: "068704070000489"
+            type: string
+        required:
+        - AcctNo
+        type: object
+      request:
+        properties:
+          requestId:
+            example: a7ea23df-7468-439d-9b12-26eb4a760901
+            type: string
+          requestTime:
+            example: "1667200102200"
+            type: string
+        required:
+        - requestId
+        - requestTime
+        type: object
+    required:
+    - data
+    type: object
+  handler.RequestTransfer:
+    properties:
+      data:
+        properties:
+          amount:
+            example: "50000"
+            type: string
+          description:
+            example: test ck
+            type: string
+          fromAcct:
+            example: "068704070000489"
+            type: string
+          toAcct:
+            example: "003704070000276"
+            type: string
+        required:
+        - amount
+        - description
+        - fromAcct
+        - toAcct
+        type: object
+      request:
+        properties:
+          requestId:
+            example: a7ea23df-7468-439d-9b12-26eb4a760901
+            type: string
+          requestTime:
+            example: "1667200102200"
+            type: string
+        required:
+        - requestId
+        - requestTime
+        type: object
+    required:
+    - data
+    type: object
+  handler.ResponsePayment:
+    properties:
+      data: {}
+      response:
+        properties:
+          responseId:
+            type: string
+          responseMessage:
+            type: string
+          responseTime:
+            type: integer
+          resultCode:
+            type: string
+        type: object
+    type: object
+  handler.ResponseStructBalance:
+    properties:
+      data:
+        properties:
+          amount:
+            type: string
+        type: object
+      response:
+        properties:
+          responseId:
+            type: string
+          responseMessage:
+            type: string
+          responseTime:
+            type: integer
+          resultCode:
+            type: string
+        type: object
+    type: object
+  handler.ResponseStructChangePass:
+    properties:
+      data: {}
+      response:
+        properties:
+          responseId:
+            type: string
+          responseMessage:
+            type: string
+          responseTime:
+            type: integer
+          resultCode:
+            type: string
+        type: object
+    type: object
+  handler.ResponseStructGetKey:
+    properties:
+      data:
+        properties:
+          key:
+            type: string
+        type: object
+      response:
+        properties:
+          responseId:
+            type: string
+          responseMessage:
+            type: string
+          responseTime:
+            type: integer
+          resultCode:
+            type: string
+        type: object
+    type: object
+  handler.ResponseStructHis:
+    properties:
+      data:
+        properties:
+          transHis:
+            items: {}
+            type: array
+        type: object
+      response:
+        properties:
+          responseId:
+            type: string
+          responseMessage:
+            type: string
+          responseTime:
+            type: integer
+          resultCode:
+            type: string
+        type: object
+    type: object
+  handler.ResponseStructLogin:
+    properties:
+      data:
+        properties:
+          accessToken:
+            type: string
+        type: object
+      response:
+        properties:
+          responseId:
+            type: string
+          responseMessage:
+            type: string
+          responseTime:
+            type: integer
+          resultCode:
+            type: string
+        type: object
+    type: object
+  handler.ResponseStructRegister:
+    properties:
+      data:
+        properties:
+          userId:
+            type: string
+        type: object
+      response:
+        properties:
+          responseId:
+            type: string
+          responseMessage:
+            type: string
+          responseTime:
+            type: integer
+          resultCode:
+            type: string
+        type: object
+    type: object
+  handler.ResponseStructTransfer:
+    properties:
+      data: {}
+      response:
+        properties:
+          responseId:
+            type: string
+          responseMessage:
+            type: string
+          responseTime:
+            type: integer
+          resultCode:
+            type: string
+        type: object
+    type: object
+host: sso-uat.hdbank.com.vn
+info:
+  contact: {}
+  description: This is a open api for hackathon
+  title: Open API HDbank
+  version: "1.0"
+paths:
+  /api/balance:
+    post:
+      consumes:
+      - application/json
+      description: Get Balance
+      parameters:
+      - description: The input todo struct
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/handler.RequestBalance'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ResponseStructBalance'
+      summary: Get Balance
+      tags:
+      - hackathon
+  /api/change_password:
+    post:
+      consumes:
+      - application/json
+      description: Change Password
+      parameters:
+      - description: The input todo struct
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/handler.RequestChangePass'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ResponseStructChangePass'
+      summary: Change Password
+      tags:
+      - hackathon
+  /api/get_key:
+    get:
+      consumes:
+      - application/json
+      description: GetKey
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ResponseStructGetKey'
+      security:
+      - X-IBM-CLIENT-SECRET: []
+      summary: GetKey
+      tags:
+      - hackathon
+  /api/login:
+    post:
+      consumes:
+      - application/json
+      description: Login
+      parameters:
+      - description: The input todo struct
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/handler.RequestLoginUser'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ResponseStructLogin'
+      summary: Login
+      tags:
+      - hackathon
+  /api/payment:
+    post:
+      consumes:
+      - application/json
+      description: Payment
+      parameters:
+      - description: The input todo struct
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/handler.RequestPayment'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ResponsePayment'
+      summary: Payment
+      tags:
+      - hackathon
+  /api/register:
+    post:
+      consumes:
+      - application/json
+      description: Register
+      parameters:
+      - description: The input todo struct
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/handler.RequestRegister'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ResponseStructRegister'
+      summary: Register
+      tags:
+      - hackathon
+  /api/tranhis:
+    post:
+      consumes:
+      - application/json
+      description: Get Tran His
+      parameters:
+      - description: The input todo struct
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/handler.RequestTransHis'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ResponseStructHis'
+      summary: Get Tran His
+      tags:
+      - hackathon
+  /api/transfer:
+    post:
+      consumes:
+      - application/json
+      description: Transfer
+      parameters:
+      - description: The input todo struct
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/handler.RequestTransfer'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.ResponseStructTransfer'
+      summary: Transfer
+      tags:
+      - hackathon
+schemes:
+- http
+- https
+securityDefinitions:
+  X-IBM-CLIENT-SECRET:
+    in: header
+    name: X-IBM-CLIENT-SECRET
+    type: apiKey
+swagger: "2.0"
