@@ -137,7 +137,40 @@ body {
     transform: translate(0px, 0px);
   }
 }
+@import url('https://fonts.googleapis.com/css?family=Major+Mono+Display&display=swap');
 
+:root {
+  --animation-delay: 75ms;
+}
+
+.div-text {
+position: absolute;
+bottom: 0;
+color: white; 
+  font-family: 'Major Mono Display', monospace;
+  padding: 120px;
+  line-height: 1.6;
+}
+
+span {
+  opacity: 0;
+  color: "white";
+  animation-name: typewriter;
+  animation-fill-mode: forwards;
+  animation-duration: 0s;
+  animation-delay: calc(var(--animation-order) * var(--animation-delay));
+  
+}
+
+@keyframes typewriter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
     </style>
  </HEAD>
  
@@ -151,6 +184,11 @@ body {
   <p>Y</p>
   <p>A</p>
   <p>Y</p>
+</div>
+<div class="div-text">
+  <p class="sentence">There are 12 months a year…30 days a month…7 days a week…24 hours a day…60 minutes an hour…but only one like you in a lifetime. </p>
+
+<p class="sentence">They say a picture tells 1,000 words but when I see yours all I see is 3: I…love…you.</p>
 </div>
     <script>
     /*
@@ -564,6 +602,29 @@ body {
         div.style.backgroundColor="transparent";
         return (div);
         }
+        let sentences = document.querySelectorAll('.sentence');
+let characterCount = 0;
+
+for (let i = 0; i < sentences.length; i++) {
+  let sentence = sentences[i];
+  let newContent = '';
+
+  // go through all characters of the sentence
+  for (let j = 0; j < sentence.textContent.length; j++) {
+    let substring = sentence.textContent.substr(j, 1);
+    // if we have a character, wrap it
+    if (substring !== " ") {
+      newContent += `<span style="--animation-order: ${characterCount};">${substring}</span>`;
+    } else {
+      newContent += substring;
+    }
+    characterCount++;
+  }
+  sentence.innerHTML = newContent;
+}
+
+
+
         // ]]>
     </script>
  </BODY>
