@@ -4,11 +4,11 @@ definitions:
     properties:
       data:
         properties:
-          AcctNo:
+          acctNo:
             example: "068704070000489"
             type: string
         required:
-        - AcctNo
+        - acctNo
         type: object
       request:
         properties:
@@ -194,7 +194,7 @@ definitions:
     properties:
       data:
         properties:
-          AcctNo:
+          acctNo:
             example: "068704070000489"
             type: string
           fromDate:
@@ -204,7 +204,7 @@ definitions:
             example: "30012021"
             type: string
         required:
-        - AcctNo
+        - acctNo
         - fromDate
         - toDate
         type: object
