@@ -1,4 +1,4 @@
-basePath: /dev
+basePath: /hackathon
 definitions:
   handler.RequestBalance:
     properties:
@@ -427,14 +427,14 @@ definitions:
             type: string
         type: object
     type: object
-host: 7ucpp7lkyl.execute-api.ap-southeast-1.amazonaws.com
+host: sso-uat.hdbank.com.vn
 info:
   contact: {}
   description: This is a open api for hackathon
   title: Open API HDbank
   version: "1.0"
 paths:
-  /balance:
+  /api/balance:
     post:
       consumes:
       - application/json
@@ -456,7 +456,7 @@ paths:
       summary: Get Balance
       tags:
       - hackathon
-  /change_password:
+  /api/change_password:
     post:
       consumes:
       - application/json
@@ -478,7 +478,7 @@ paths:
       summary: Change Password
       tags:
       - hackathon
-  /get_key:
+  /api/get_key:
     get:
       consumes:
       - application/json
@@ -491,11 +491,11 @@ paths:
           schema:
             $ref: '#/definitions/handler.ResponseStructGetKey'
       security:
-      - access-token: []
+      - X-IBM-CLIENT-SECRET: []
       summary: GetKey
       tags:
       - hackathon
-  /getpayment:
+  /api/getpayment:
     post:
       consumes:
       - application/json
@@ -517,7 +517,7 @@ paths:
       summary: get payment
       tags:
       - hackathon
-  /login:
+  /api/login:
     post:
       consumes:
       - application/json
@@ -539,7 +539,7 @@ paths:
       summary: Login
       tags:
       - hackathon
-  /payment:
+  /api/payment:
     post:
       consumes:
       - application/json
@@ -561,7 +561,7 @@ paths:
       summary: Payment
       tags:
       - hackathon
-  /register:
+  /api/register:
     post:
       consumes:
       - application/json
@@ -583,7 +583,7 @@ paths:
       summary: Register
       tags:
       - hackathon
-  /tranhis:
+  /api/tranhis:
     post:
       consumes:
       - application/json
@@ -605,7 +605,7 @@ paths:
       summary: Get transaction history
       tags:
       - hackathon
-  /transfer:
+  /api/transfer:
     post:
       consumes:
       - application/json
@@ -630,8 +630,8 @@ paths:
 schemes:
 - https
 securityDefinitions:
-  access-token:
+  X-IBM-CLIENT-SECRET:
     in: header
-    name: access-token
+    name: X-IBM-CLIENT-SECRET
     type: apiKey
 swagger: "2.0"
