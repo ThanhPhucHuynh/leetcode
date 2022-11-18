@@ -453,8 +453,6 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/handler.ResponseStructBalance'
-      security:
-      - access-token: []
       summary: Get Balance
       tags:
       - hackathon
@@ -477,8 +475,6 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/handler.ResponseStructChangePass'
-      security:
-      - access-token: []
       summary: Change Password
       tags:
       - hackathon
@@ -518,8 +514,6 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/handler.ResponseGetPayment'
-      security:
-      - access-token: []
       summary: get payment
       tags:
       - hackathon
@@ -542,8 +536,6 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/handler.ResponseStructLogin'
-      security:
-      - access-token: []
       summary: Login
       tags:
       - hackathon
@@ -566,8 +558,6 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/handler.ResponsePayment'
-      security:
-      - access-token: []
       summary: Payment
       tags:
       - hackathon
@@ -590,8 +580,6 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/handler.ResponseStructRegister'
-      security:
-      - access-token: []
       summary: Register
       tags:
       - hackathon
@@ -614,8 +602,6 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/handler.ResponseStructHis'
-      security:
-      - access-token: []
       summary: Get transaction history
       tags:
       - hackathon
@@ -638,8 +624,6 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/handler.ResponseStructTransfer'
-      security:
-      - access-token: []
       summary: Transfer
       tags:
       - hackathon
