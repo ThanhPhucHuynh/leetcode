@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Open API HDbank
-  description: This is a open api for hackathon
+  description: Danh sách API cuộc thi.
   contact: {}
   version: "1.0"
 servers:
@@ -13,7 +13,7 @@ paths:
       - url: https://hdbank-hackathon.auth.ap-southeast-1.amazoncognito.com
         description: Refresh Token
       tags:
-      - Refresh
+      - Refresh - JWT Token kết nối hệ thống
       summary: Refresh Token
       description: Refresh
       requestBody:
@@ -34,7 +34,7 @@ paths:
   /balance:
     post:
       tags:
-      - hackathon
+      - Danh sách API ngân hàng
       summary: Get Balance
       description: Get Balance
       requestBody:
@@ -58,7 +58,7 @@ paths:
   /change_password:
     post:
       tags:
-      - hackathon
+      - Danh sách API ngân hàng
       summary: Change Password
       description: Change Password
       requestBody:
@@ -82,7 +82,7 @@ paths:
   /get_key:
     get:
       tags:
-      - hackathon
+      - Danh sách API ngân hàng
       summary: GetKey
       description: GetKey
       responses:
@@ -98,7 +98,7 @@ paths:
   /getpayment:
     post:
       tags:
-      - hackathon
+      - Danh sách API ngân hàng
       summary: get payment
       description: get payment
       requestBody:
@@ -122,7 +122,7 @@ paths:
   /login:
     post:
       tags:
-      - hackathon
+      - Danh sách API ngân hàng
       summary: Login
       description: Login
       requestBody:
@@ -146,7 +146,7 @@ paths:
   /payment:
     post:
       tags:
-      - hackathon
+      - Danh sách API ngân hàng
       summary: Payment
       description: Payment
       requestBody:
@@ -170,7 +170,7 @@ paths:
   /register:
     post:
       tags:
-      - hackathon
+      - Danh sách API ngân hàng
       summary: Register
       description: Register
       requestBody:
@@ -194,7 +194,7 @@ paths:
   /tranhis:
     post:
       tags:
-      - hackathon
+      - Danh sách API ngân hàng
       summary: Get transaction history
       description: Get transaction history
       requestBody:
@@ -218,7 +218,7 @@ paths:
   /transfer:
     post:
       tags:
-      - hackathon
+      - Danh sách API ngân hàng
       summary: Transfer
       description: Transfer
       requestBody:
