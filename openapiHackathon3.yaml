@@ -10,8 +10,8 @@ paths:
   /oauth2/token:
     post:
       servers:
-      - url: https://tphuc-pool.auth.ap-southeast-1.amazoncognito.com/
-        description: Override base path for all operations with the /files path
+      - url: https://hdbank-hackathon.auth.ap-southeast-1.amazoncognito.com
+        description: Refresh Token
       tags:
       - Refresh
       summary: Refresh Token
@@ -440,7 +440,7 @@ components:
       properties:
         client_id:
           type: string
-          example: 4mtl1vr36b197slv587j03f747
+          example: sikcnei4t2h3ntkqj5d49ltvr
         grant_type:
           type: string
           example: refresh_token
