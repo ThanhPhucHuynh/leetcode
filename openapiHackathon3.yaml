@@ -34,9 +34,9 @@ paths:
   /balance:
     post:
       tags:
-      - Hackathon - Danh sách API ngân hàng
-      summary: Get Balance
-      description: Get Balance
+      - Danh sách API ngân hàng
+      summary: Chức năng lấy số dư
+      description: Thực hiện truy vấn số dư của tài khoản
       requestBody:
         description: The request structure
         content:
@@ -58,9 +58,9 @@ paths:
   /change_password:
     post:
       tags:
-      - Hackathon - Danh sách API ngân hàng
-      summary: Change Password
-      description: Change Password
+      - Danh sách API ngân hàng
+      summary: Chức năng đổi mật khẩu
+      description: Đổi mật khẩu của user
       requestBody:
         description: The request structure
         content:
@@ -82,9 +82,9 @@ paths:
   /get_key:
     get:
       tags:
-      - Hackathon - Danh sách API ngân hàng
-      summary: GetKey
-      description: GetKey
+      - Danh sách API ngân hàng
+      summary: Lấy public key
+      description: Lấy public key để mã hóa thông tin user trên kênh truyền
       responses:
         200:
           description: OK
@@ -98,9 +98,9 @@ paths:
   /getpayment:
     post:
       tags:
-      - Hackathon - Danh sách API ngân hàng
-      summary: get payment
-      description: get payment
+      - Danh sách API ngân hàng
+      summary: Chức năng lấy danh sách học phí
+      description: Lấy danh sách học phí chưa đóng
       requestBody:
         description: The request structure
         content:
@@ -122,9 +122,9 @@ paths:
   /login:
     post:
       tags:
-      - Hackathon - Danh sách API ngân hàng
-      summary: Login
-      description: Login
+      - Danh sách API ngân hàng
+      summary: Chức năng đăng nhập
+      description: Chức năng đăng nhập, kiểm tra thông tin  user
       requestBody:
         description: The request structure
         content:
@@ -146,9 +146,9 @@ paths:
   /payment:
     post:
       tags:
-      - Hackathon - Danh sách API ngân hàng
-      summary: Payment
-      description: Payment
+      - Danh sách API ngân hàng
+      summary: Chức năng thanh toán học phí
+      description: Giúp thanh toán học phí, dựa vào mã sinh viên, số tiền và nội dung giao dịch
       requestBody:
         description: The request structure
         content:
@@ -170,9 +170,9 @@ paths:
   /register:
     post:
       tags:
-      - Hackathon - Danh sách API ngân hàng
-      summary: Register
-      description: Register
+      - Danh sách API ngân hàng
+      summary: Chức năng đăng ký tạo khoản
+      description: Chức năng đăng ký tạo khoản
       requestBody:
         description: The request structure
         content:
@@ -194,9 +194,9 @@ paths:
   /tranhis:
     post:
       tags:
-      - Hackathon - Danh sách API ngân hàng
-      summary: Get transaction history
-      description: Get transaction history
+      - Danh sách API ngân hàng
+      summary: Chức năng lấy lịch sử giao dịch
+      description: Giúp thực hiện truy vấn các giao dịch của tài khoản
       requestBody:
         description: The request structure
         content:
@@ -218,9 +218,9 @@ paths:
   /transfer:
     post:
       tags:
-      - Hackathon - Danh sách API ngân hàng
-      summary: Transfer
-      description: Transfer
+      - Danh sách API ngân hàng
+      summary: Chức năng chuyển khoản
+      description: Giúp chuyển khoản nội bộ giữa các tài khoản hdbank
       requestBody:
         description: The request structure
         content:
