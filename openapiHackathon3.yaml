@@ -1,0 +1,710 @@
+openapi: 3.0.1
+info:
+  title: Open API HDbank
+  description: This is a open api for hackathon
+  contact: {}
+  version: "1.0"
+servers:
+- url: https://7ucpp7lkyl.execute-api.ap-southeast-1.amazonaws.com/dev
+paths:
+  /oauth2/token:
+    post:
+      servers:
+      - url: https://tphuc-pool.auth.ap-southeast-1.amazoncognito.com/
+        description: Override base path for all operations with the /files path
+      tags:
+      - Refresh
+      summary: Refresh Token
+      description: Refresh
+      requestBody:
+        description: The request structure
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/handler.RequestT'
+        required: true
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ResponseT'
+      x-codegen-request-body-name: data
+  /balance:
+    post:
+      tags:
+      - hackathon
+      summary: Get Balance
+      description: Get Balance
+      requestBody:
+        description: The request structure
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/handler.RequestBalance'
+        required: true
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ResponseStructBalance'
+      security:
+      - access-token: []
+      - x-api-key: []
+      x-codegen-request-body-name: data
+  /change_password:
+    post:
+      tags:
+      - hackathon
+      summary: Change Password
+      description: Change Password
+      requestBody:
+        description: The request structure
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/handler.RequestChangePass'
+        required: true
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ResponseStructChangePass'
+      security:
+      - access-token: []
+      - x-api-key: []
+      x-codegen-request-body-name: data
+  /get_key:
+    get:
+      tags:
+      - hackathon
+      summary: GetKey
+      description: GetKey
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ResponseStructGetKey'
+      security:
+      - access-token: []
+      - x-api-key: []
+  /getpayment:
+    post:
+      tags:
+      - hackathon
+      summary: get payment
+      description: get payment
+      requestBody:
+        description: The request structure
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/handler.RequestGetPayment'
+        required: true
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ResponseGetPayment'
+      security:
+      - access-token: []
+      - x-api-key: []
+      x-codegen-request-body-name: data
+  /login:
+    post:
+      tags:
+      - hackathon
+      summary: Login
+      description: Login
+      requestBody:
+        description: The request structure
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/handler.RequestLoginUser'
+        required: true
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ResponseStructLogin'
+      security:
+      - access-token: []
+      - x-api-key: []
+      x-codegen-request-body-name: data
+  /payment:
+    post:
+      tags:
+      - hackathon
+      summary: Payment
+      description: Payment
+      requestBody:
+        description: The request structure
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/handler.RequestPayment'
+        required: true
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ResponsePayment'
+      security:
+      - access-token: []
+      - x-api-key: []
+      x-codegen-request-body-name: data
+  /register:
+    post:
+      tags:
+      - hackathon
+      summary: Register
+      description: Register
+      requestBody:
+        description: The request structure
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/handler.RequestRegister'
+        required: true
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ResponseStructRegister'
+      security:
+      - access-token: []
+      - x-api-key: []
+      x-codegen-request-body-name: data
+  /tranhis:
+    post:
+      tags:
+      - hackathon
+      summary: Get transaction history
+      description: Get transaction history
+      requestBody:
+        description: The request structure
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/handler.RequestTransHis'
+        required: true
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ResponseStructHis'
+      security:
+      - access-token: []
+      - x-api-key: []
+      x-codegen-request-body-name: data
+  /transfer:
+    post:
+      tags:
+      - hackathon
+      summary: Transfer
+      description: Transfer
+      requestBody:
+        description: The request structure
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/handler.RequestTransfer'
+        required: true
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/handler.ResponseStructTransfer'
+      security:
+      - access-token: []
+      - x-api-key: []
+      x-codegen-request-body-name: data
+components:
+  schemas:
+    handler.RequestBalance:
+      required:
+      - data
+      type: object
+      properties:
+        data:
+          required:
+          - acctNo
+          type: object
+          properties:
+            acctNo:
+              type: string
+              example: "068704070000489"
+        request:
+          required:
+          - requestId
+          - requestTime
+          type: object
+          properties:
+            requestId:
+              type: string
+              example: a7ea23df-7468-439d-9b12-26eb4a760901
+            requestTime:
+              type: string
+              example: "1667200102200"
+    handler.RequestChangePass:
+      required:
+      - data
+      type: object
+      properties:
+        data:
+          required:
+          - credential
+          - key
+          type: object
+          properties:
+            credential:
+              type: string
+              example: Ak/sH3697qOdP/YJIB/Xm5JLf4HW6i0Wuqg0vVbk1uSefBpRAs8RMTW3V9LXhDzgMp4h9zHVc98Fn5UbZvHK2F48cNncW0Vax27r22wHOcKAL0SQVICKRGMuAHA7uoz2VEMJXjkRid60hHyjgXxZELOtuyyw6frrqZt3kjqKiFI=
+            key:
+              type: string
+              example: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCDY1DzbqoavP8UVPYARHpy+zPlaFiBdf3imr5m4RdbHCwMueevk+NoWV2dqL/LBnk8oWMqWkgMDnTleXe/jvj6zQEuuCoBVDiZq4k0JXbHdTmXg0/fH7d9YD0BsSkpSJH8A9RBSnjvIzKLNHXKTUyxG1QIIKbU2lhVAB/jK2UtdwIDAQAB
+        request:
+          required:
+          - requestId
+          - requestTime
+          type: object
+          properties:
+            requestId:
+              type: string
+              example: a7ea23df-7468-439d-9b12-26eb4a760901
+            requestTime:
+              type: string
+              example: "1667200102200"
+    handler.RequestGetPayment:
+      required:
+      - data
+      type: object
+      properties:
+        data:
+          required:
+          - sdId
+          type: object
+          properties:
+            sdId:
+              type: string
+              example: "91345"
+        request:
+          required:
+          - requestId
+          - requestTime
+          type: object
+          properties:
+            requestId:
+              type: string
+              example: a7ea23df-7468-439d-9b12-26eb4a760901
+            requestTime:
+              type: string
+              example: "1667200102200"
+    handler.RequestLoginUser:
+      required:
+      - data
+      type: object
+      properties:
+        data:
+          required:
+          - credential
+          - key
+          type: object
+          properties:
+            credential:
+              type: string
+              example: aTRsE1phCk5ZUYGt4DqzUUbuU6bQ+8l2AcuKEYek4tRJx0Id04icxkW5EJ/VekK829Gg1rN8yQW6mY+rEUamireeuWUekR5yEQIw+1O7+thCdnPlQ9zULFXh9Xr9zygJqjUK5u+Y+5Ez3Am7PDmB61lwA1wp0/0s6QSpmATn6hI=
+            key:
+              type: string
+              example: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCDY1DzbqoavP8UVPYARHpy+zPlaFiBdf3imr5m4RdbHCwMueevk+NoWV2dqL/LBnk8oWMqWkgMDnTleXe/jvj6zQEuuCoBVDiZq4k0JXbHdTmXg0/fH7d9YD0BsSkpSJH8A9RBSnjvIzKLNHXKTUyxG1QIIKbU2lhVAB/jK2UtdwIDAQAB
+        request:
+          required:
+          - requestId
+          - requestTime
+          type: object
+          properties:
+            requestId:
+              type: string
+              example: a7ea23df-7468-439d-9b12-26eb4a760901
+            requestTime:
+              type: string
+              example: "1667200102200"
+    handler.RequestPayment:
+      required:
+      - data
+      type: object
+      properties:
+        data:
+          required:
+          - amount
+          - description
+          - fromAcct
+          - sdId
+          type: object
+          properties:
+            amount:
+              type: string
+              example: "4935000"
+            description:
+              type: string
+              example: dong hoc phi ky 2/2021 - 2022
+            fromAcct:
+              type: string
+              example: "068704070000489"
+            sdId:
+              type: string
+              example: "91345"
+        request:
+          required:
+          - requestId
+          - requestTime
+          type: object
+          properties:
+            requestId:
+              type: string
+              example: a7ea23df-7468-439d-9b12-26eb4a760901
+            requestTime:
+              type: string
+              example: "1667200102200"
+    handler.RequestRegister:
+      required:
+      - data
+      type: object
+      properties:
+        data:
+          required:
+          - credential
+          - email
+          - fullName
+          - identityNumber
+          - key
+          - phone
+          type: object
+          properties:
+            credential:
+              type: string
+              example: aTRsE1phCk5ZUYGt4DqzUUbuU6bQ+8l2AcuKEYek4tRJx0Id04icxkW5EJ/VekK829Gg1rN8yQW6mY+rEUamireeuWUekR5yEQIw+1O7+thCdnPlQ9zULFXh9Xr9zygJqjUK5u+Y+5Ez3Am7PDmB61lwA1wp0/0s6QSpmATn6hI=
+            email:
+              type: string
+              example: minhnq9@hdbank.com.vn
+            fullName:
+              type: string
+              example: Nguyen Quoc Minh
+            identityNumber:
+              type: string
+              example: "225753433"
+            key:
+              type: string
+              example: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCDY1DzbqoavP8UVPYARHpy+zPlaFiBdf3imr5m4RdbHCwMueevk+NoWV2dqL/LBnk8oWMqWkgMDnTleXe/jvj6zQEuuCoBVDiZq4k0JXbHdTmXg0/fH7d9YD0BsSkpSJH8A9RBSnjvIzKLNHXKTUyxG1QIIKbU2lhVAB/jK2UtdwIDAQAB
+            phone:
+              type: string
+              example: "0383479651"
+        request:
+          required:
+          - requestId
+          - requestTime
+          type: object
+          properties:
+            requestId:
+              type: string
+              example: a7ea23df-7468-439d-9b12-26eb4a760901
+            requestTime:
+              type: string
+              example: "1667200102200"
+    handler.RequestT:
+      required:
+      - client_id
+      - grant_type
+      - refresh_token
+      type: object
+      properties:
+        client_id:
+          type: string
+          example: 4mtl1vr36b197slv587j03f747
+        grant_type:
+          type: string
+          example: refresh_token
+        refresh_token:
+          type: string
+          example: eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.XbWKI-ObhFD9Puj9plhfgjfXIgS9OKpaKniuu0UbskrxBypygWrwsO56ZKVvEY_PC7i4MdacS8SlXFFNnWvVXSbdjwnSAdx_AVUwgYbljpeEiMPiqBk5UGGUE96FXNY_dm_OkS0LDgFfuOa6usym-zKL1AC6EDupoN4QaWCQK2CLhJKnkc7fFfAz2tK2HPZLXyciJA5rlzndUkMZA6lOKQxOBXSWE6ytzFiRKGWmMMtnozK2NtqGknmq0_rAv2aa83RUKzJod3dyxNLt8Uh64YF5w0wwamxrPGd1U9rZRrhlyQkJJEM38AF-OjWZE3Yktpx9Z1sZagnmEBbjy8VX8g.t7axQ27zS0pAj2YG.iPp4JG0agvkajvHvXPsgZ6D2YD1L1LrFjMzYxCP45Nfzgqn7ybcZ_l8jQyQwFkupAAZTD4GO-K3fUhqDrvbrEzd1NGizQ4yYc4USL8QqOq1u6bzMjxXAhkO_Hj4wsnZbtlStMueQq8UsBAcxhIvV6t8Docvk2FS4wtpdA7K0heP8nKKw1HUMh_5g6NO5Bfpgf6XEgHcy1XtzYdKSd9d0XyUbWEKZMF09x9a4zqRuMfshILZqOvVqsf7IxHDi4r7NhcMYfuRTHWw1PGwTjP5tskYyRJv3Y_xzh5SZVNkyBzPvKdoMNPj7EMRDPUJWi5_l8iDHf21UzW-KqjF775bimS3YL--dUWNyxdiDoevOOppA3w8JDZltBQlNgu49Ko-pjtuOPwHCTS1oJ08fjxzs_3O-5FsRX1m5IqRMfyItrjShW1iW1-DM9HHXUN8_i4zJdCSr7jcDYBo1OCV7WhvAvd-xnvtztN1ZTYTc5TJrDW4VtWtYWb-580tagFrgNF0WObmAwk211uusCiVt1l4SPAVhVaXScYmAF58H0RFC36YT2zISwpxvr9OzCsoSR0WV95bPKIu1TpNd1mTJjCj2UwT3o_nxw4pnbZSecctWFmiMZJhtny--alKQ8_AKu8_424xjPVVVHklCb5pmzBKRNOW8KnuN8t4AyI3NIipRWESRvghL8VbpUTqID_9hwxsut3X_0F7givv5YeOG_UkgyRDCuL5sG0ZpSMi7-xjfZ8UjQaepLBtThT-__lEPjvhsKN1WCCbG5ghc-7HqyUYFojG3pxf5O3FIuj3gdjXMxbIyrSLNVYC0uGcygFt0RuR9arqeQB_3Gk-WtUrZt1qRsJIruckrPLNT0G3MbHbJtPrPxeQ-pmHQafgdEzkBaXLMN3tFkgAzum21mrvKxFNb-p4Vs1SYZUtbcBbEY2C3UvMElQAGkMvgj5JdvxApjcollKU9QpR-6DrnF7IuvIzKJcSTKHsmvLfRsdeFPM26olgq1ixjCP3kYUKEaPJCxMQtlHZ_b_XAC2qjw2TkLPpiBen3wlg41BB6PmXmIV94IxsfUyQaYpvafRqQ9T_IrtUxfoRSPjANJWBteP1Ed6F_QzzgPmXno8t9DyngAkHFufniY1FCpjGB8qGA2dTmI64GknqVf1I0Q_AYj21vbobWmIH73MT9tBOpWHi9KWPsaZTFQn6SFtqvKVxA_huKnmVhwPJI7HT0bDbz0nmPJY0hXZ1XWoClFBBzhLBOM_Y9omKe-l34ctSm-bOcTrH72fGkfcwiXnHVkfXTZmkkbAje6YEAcujP15I3qNr6DtdcrZTxm451EvRNlyLQ0UE_83eDeb66RVGVXuoB.QcmPOSTo-ljPwcMa-Q33BA
+    handler.RequestTransHis:
+      required:
+      - data
+      type: object
+      properties:
+        data:
+          required:
+          - acctNo
+          - fromDate
+          - toDate
+          type: object
+          properties:
+            acctNo:
+              type: string
+              example: "068704070000489"
+            fromDate:
+              type: string
+              example: "23012021"
+            toDate:
+              type: string
+              example: "30012021"
+        request:
+          required:
+          - requestId
+          - requestTime
+          type: object
+          properties:
+            requestId:
+              type: string
+              example: a7ea23df-7468-439d-9b12-26eb4a760901
+            requestTime:
+              type: string
+              example: "1667200102200"
+    handler.RequestTransfer:
+      required:
+      - data
+      type: object
+      properties:
+        data:
+          required:
+          - amount
+          - description
+          - fromAcct
+          - toAcct
+          type: object
+          properties:
+            amount:
+              type: string
+              example: "50000"
+            description:
+              type: string
+              example: test ck
+            fromAcct:
+              type: string
+              example: "068704070000489"
+            toAcct:
+              type: string
+              example: "003704070000276"
+        request:
+          required:
+          - requestId
+          - requestTime
+          type: object
+          properties:
+            requestId:
+              type: string
+              example: a7ea23df-7468-439d-9b12-26eb4a760901
+            requestTime:
+              type: string
+              example: "1667200102200"
+    handler.ResponseGetPayment:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            payments:
+              type: array
+              items:
+                type: object
+                properties:
+                  description:
+                    type: integer
+                  fee:
+                    type: string
+        response:
+          type: object
+          properties:
+            responseId:
+              type: string
+            responseMessage:
+              type: string
+            responseTime:
+              type: integer
+            resultCode:
+              type: string
+    handler.ResponsePayment:
+      type: object
+      properties:
+        data:
+          type: object
+        response:
+          type: object
+          properties:
+            responseId:
+              type: string
+            responseMessage:
+              type: string
+            responseTime:
+              type: integer
+            resultCode:
+              type: string
+    handler.ResponseStructBalance:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            amount:
+              type: string
+        response:
+          type: object
+          properties:
+            responseId:
+              type: string
+            responseMessage:
+              type: string
+            responseTime:
+              type: integer
+            resultCode:
+              type: string
+    handler.ResponseStructChangePass:
+      type: object
+      properties:
+        data:
+          type: object
+        response:
+          type: object
+          properties:
+            responseId:
+              type: string
+            responseMessage:
+              type: string
+            responseTime:
+              type: integer
+            resultCode:
+              type: string
+    handler.ResponseStructGetKey:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            key:
+              type: string
+        response:
+          type: object
+          properties:
+            responseId:
+              type: string
+            responseMessage:
+              type: string
+            responseTime:
+              type: integer
+            resultCode:
+              type: string
+    handler.ResponseStructHis:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            transHis:
+              type: array
+              items:
+                type: object
+        response:
+          type: object
+          properties:
+            responseId:
+              type: string
+            responseMessage:
+              type: string
+            responseTime:
+              type: integer
+            resultCode:
+              type: string
+    handler.ResponseStructLogin:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            accessToken:
+              type: string
+        response:
+          type: object
+          properties:
+            responseId:
+              type: string
+            responseMessage:
+              type: string
+            responseTime:
+              type: integer
+            resultCode:
+              type: string
+    handler.ResponseStructRegister:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            userId:
+              type: string
+        response:
+          type: object
+          properties:
+            responseId:
+              type: string
+            responseMessage:
+              type: string
+            responseTime:
+              type: integer
+            resultCode:
+              type: string
+    handler.ResponseStructTransfer:
+      type: object
+      properties:
+        data:
+          type: object
+        response:
+          type: object
+          properties:
+            responseId:
+              type: string
+            responseMessage:
+              type: string
+            responseTime:
+              type: integer
+            resultCode:
+              type: string
+    handler.ResponseT:
+      type: object
+      properties:
+        access_token:
+          type: string
+        expires_in:
+          type: string
+        id_token:
+          type: string
+        token_type:
+          type: string
+  securitySchemes:
+    access-token:
+      type: apiKey
+      name: access-token
+      in: header
+    x-api-key:
+      type: apiKey
+      name: x-api-key
+      in: header
