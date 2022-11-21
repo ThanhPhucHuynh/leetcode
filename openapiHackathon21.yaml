@@ -455,7 +455,6 @@ paths:
             $ref: '#/definitions/handler.ResponseStructBalance'
       security:
       - access-token: []
-      - x-api-key: []
       summary: Get Balance
       tags:
       - hackathon
@@ -480,7 +479,6 @@ paths:
             $ref: '#/definitions/handler.ResponseStructChangePass'
       security:
       - access-token: []
-      - x-api-key: []
       summary: Change Password
       tags:
       - hackathon
@@ -498,7 +496,6 @@ paths:
             $ref: '#/definitions/handler.ResponseStructGetKey'
       security:
       - access-token: []
-      - x-api-key: []
       summary: GetKey
       tags:
       - hackathon
@@ -523,7 +520,6 @@ paths:
             $ref: '#/definitions/handler.ResponseGetPayment'
       security:
       - access-token: []
-      - x-api-key: []
       summary: get payment
       tags:
       - hackathon
@@ -548,7 +544,6 @@ paths:
             $ref: '#/definitions/handler.ResponseStructLogin'
       security:
       - access-token: []
-      - x-api-key: []
       summary: Login
       tags:
       - hackathon
@@ -573,7 +568,6 @@ paths:
             $ref: '#/definitions/handler.ResponsePayment'
       security:
       - access-token: []
-      - x-api-key: []
       summary: Payment
       tags:
       - hackathon
@@ -598,7 +592,6 @@ paths:
             $ref: '#/definitions/handler.ResponseStructRegister'
       security:
       - access-token: []
-      - x-api-key: []
       summary: Register
       tags:
       - hackathon
@@ -623,7 +616,6 @@ paths:
             $ref: '#/definitions/handler.ResponseStructHis'
       security:
       - access-token: []
-      - x-api-key: []
       summary: Get transaction history
       tags:
       - hackathon
@@ -648,7 +640,6 @@ paths:
             $ref: '#/definitions/handler.ResponseStructTransfer'
       security:
       - access-token: []
-      - x-api-key: []
       summary: Transfer
       tags:
       - hackathon
@@ -658,9 +649,5 @@ securityDefinitions:
   access-token:
     in: header
     name: access-token
-    type: apiKey
-  x-api-key:
-    in: header
-    name: x-api-key
     type: apiKey
 swagger: "2.0"
